@@ -1,0 +1,32 @@
+import {chromium,expect} from '@playwright/test';
+import {mkdir,writeFile,copyFile} from 'node:fs/promises';
+const url=process.env.WEB_URL??'http://localhost:3000';
+const target=process.env.AGENTBOND_RECORD_TITLE??process.argv[2]??'AJ9FYGTcGHS6oE7KZfgQjBhYVPpKT4kJx9XbMgDES7Kp';
+await mkdir('artifacts/web/video',{recursive:true});
+const browser=await chromium.launch();
+const context=await browser.newContext({viewport:{width:1440,height:1000},recordVideo:{dir:'artifacts/web/video',size:{width:1440,height:1000}}});
+const page=await context.newPage();page.setDefaultTimeout(15000);
+const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+await page.goto(url);await page.waitForSelector('.job-card');
+await page.screenshot({path:'artifacts/web/demo-landing.png',fullPage:true});
+await page.waitForTimeout(4000);
+await page.getByRole('button',{name:'Marketplace',exact:true}).click();
+await page.getByRole('textbox',{name:'Search jobs'}).fill(target);
+await page.locator('.job-card').first().click();
+await expect(page.getByRole('heading',{name:'Escrow & chain state'})).toBeVisible();
+await writeFile('artifacts/web/record-ready.json',JSON.stringify({url,target,startedAt:new Date().toISOString()},null,2));
+await page.screenshot({path:'artifacts/web/demo-initial-state.png',fullPage:true});
+let settled=false;
+try{await expect(page.locator('.page-title .status')).toHaveText('SETTLED',{timeout:120000});settled=true}catch{}
+await page.screenshot({path:'artifacts/web/demo-final-state.png',fullPage:true});
+await page.waitForTimeout(3000);await page.locator('.detail-layout').scrollIntoViewIfNeeded();
+await page.waitForTimeout(5000);
+await page.getByRole('button',{name:'Marketplace',exact:true}).click();
+await page.getByRole('textbox',{name:'Search jobs'}).fill('Reject corrupted analysis');
+if(await page.locator('.job-card').count()){await page.locator('.job-card').first().click();await page.waitForTimeout(3000);await page.screenshot({path:'artifacts/web/demo-refund.png',fullPage:true})}
+await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.getByRole('button',{name:'Agents',exact:true}).click();await page.waitForTimeout(2000);
+await page.getByRole('button',{name:'Dashboard',exact:true}).click();await page.waitForTimeout(2000);
+console.log('Recording finished, closing video');const recordedVideo=page.video()!;await page.close();await context.close();const video=await recordedVideo.path();await copyFile(video,'artifacts/web/agentbond-real-ui.webm');await browser.close();
+await writeFile('artifacts/web/video-evidence.json',JSON.stringify({url,target,settled,errors,video:'artifacts/web/agentbond-real-ui.webm',recordedAt:new Date().toISOString()},null,2));
+console.log(JSON.stringify({video:'artifacts/web/agentbond-real-ui.webm',settled,errors}));
+if(!settled||errors.length)process.exitCode=1;

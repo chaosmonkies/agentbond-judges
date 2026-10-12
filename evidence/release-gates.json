@@ -1,0 +1,69 @@
+{
+  "recordedAt": "2026-10-12T16:41:14.040Z",
+  "scope": "full-stack-devnet",
+  "productReleaseReady": true,
+  "fullStackDevnetReady": true,
+  "contestSubmissionConfirmed": false,
+  "gates": {
+    "documentation": {
+      "pass": true,
+      "detail": "Required product and submission documents exist"
+    },
+    "critical-tests": {
+      "pass": true,
+      "detail": "Actual isolated validator suite passed at 2026-10-12T02:44:58.168Z; current binary matches recorded tested build"
+    },
+    "local-real-lifecycle": {
+      "pass": true,
+      "detail": "Current local chain confirms settlement/refund and committed artifact/receipt hashes"
+    },
+    "browser-tests": {
+      "pass": true,
+      "detail": "5 actual local browser tests passed without skips"
+    },
+    "actual-demo-video": {
+      "pass": true,
+      "detail": "Actual local UI camera observed SETTLED"
+    },
+    "devnet-deployment": {
+      "pass": true,
+      "detail": "Live devnet genesis, loader accounts, upgrade authority and tested bytecode match"
+    },
+    "devnet-real-lifecycle": {
+      "pass": true,
+      "detail": "Live terminal jobs, commitments, independent results and exactly 25000000-unit settlement/refund deltas verified"
+    },
+    "public-devnet-deployment": {
+      "pass": true,
+      "detail": "Public HTTPS app/config/jobs/artifacts return 200 and match the same live devnet accounts"
+    },
+    "public-devnet-smoke": {
+      "pass": true,
+      "detail": "Actual writable hosted browser smoke passed at 2026-10-12T16:22:05.146Z"
+    },
+    "hosted-autonomous-lifecycle": {
+      "pass": true,
+      "detail": "Public wallet upload/create/fund and continuously hosted claim/verify/settle match exact chain token deltas"
+    },
+    "hosted-restart-durability": {
+      "pass": true,
+      "detail": "Remote API restart preserved uploaded CSV, metadata, artifact and exact receipt bytes"
+    },
+    "hosted-failure-refund": {
+      "pass": true,
+      "detail": "Fresh remote failure deadline/refund returned exact escrow principal and rejected a duplicate refund"
+    },
+    "hosted-faucet-wallet-flow": {
+      "pass": true,
+      "detail": "Public wallet-authenticated devnet faucet delivered real test SOL/custom tokens and recovered retries without duplication"
+    },
+    "hosted-workflow-video": {
+      "pass": true,
+      "detail": "Actual fresh public wallet workflow footage matches the independently verified settled job and is under three minutes"
+    },
+    "devnet-demo-video": {
+      "pass": true,
+      "detail": "Fresh public workflow footage shows the verified devnet payout and separately verified terminal refund"
+    }
+  }
+}

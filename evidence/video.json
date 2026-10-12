@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "url": "https://otcs.ai",
+  "network": "devnet",
+  "recordedAt": "2026-10-12T16:23:17.564Z",
+  "recording": "Fresh public wallet upload/create/fund, remote autonomous settlement and actual terminal refund UI; Node signing bridge, no extension approval UI",
+  "source": "evidence/workflow-ui.webm",
+  "sourceSha256": "2913788da30446d4579c41b5775827bffa8651e338928321d1cb13f13a6f4b2e",
+  "mp4": "evidence/demo.mp4",
+  "mp4Sha256": "4953e7ebd3002b95ecfefe2824af101b4c8890658bf444bf9bdbdc603bf1b171",
+  "bytes": 1594608,
+  "durationSeconds": 72.52,
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1440,
+      "height": 1000
+    }
+  ],
+  "settledJob": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+  "refundedJob": "H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg",
+  "walletTransport": "Node test signing bridge; no secret bytes in browser. Actual wallet extension approval UI is not tested."
+}

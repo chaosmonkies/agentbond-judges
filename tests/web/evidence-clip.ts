@@ -1,0 +1,12 @@
+import {chromium,expect} from '@playwright/test';
+import {copyFile,writeFile} from 'node:fs/promises';
+const browser=await chromium.launch();const context=await browser.newContext({viewport:{width:1440,height:1000},recordVideo:{dir:'artifacts/web/video',size:{width:1440,height:1000}}});
+const page=await context.newPage();page.setDefaultTimeout(15000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto(process.env.WEB_URL??'http://localhost:3000');await page.waitForSelector('.job-card');
+await page.getByRole('button',{name:'Marketplace',exact:true}).click();await page.getByRole('textbox',{name:'Search jobs'}).fill('ANJicuZ1HSEMDQF4a1MudwvSWXCCL6V3cUovtKXPWdVR');await page.locator('.job-card').first().click();
+await expect(page.locator('.page-title .status')).toHaveText('SETTLED');await expect(page.locator('.code-block').last()).toContainText('"matchesChainCommitment": true');
+await page.screenshot({path:'artifacts/web/verified-artifact-receipt.png',fullPage:true});
+await page.getByRole('heading',{name:'Artifact & verification receipt'}).scrollIntoViewIfNeeded();await page.waitForTimeout(4000);
+await page.locator('.code-block').last().evaluate(element=>{element.scrollTop=element.scrollHeight});await page.waitForTimeout(4000);
+await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.getByRole('button',{name:'Marketplace',exact:true}).click();await page.getByRole('textbox',{name:'Search jobs'}).fill('Reject corrupted analysis');await page.locator('.job-card').first().click();await expect(page.locator('.page-title .status')).toHaveText('REFUNDED');await page.waitForTimeout(4000);await page.screenshot({path:'artifacts/web/verified-refund.png',fullPage:true});
+const video=page.video()!;await page.close();await context.close();await copyFile(await video.path(),'artifacts/web/verified-evidence-clip.webm');await browser.close();await writeFile('artifacts/web/evidence-clip.json',JSON.stringify({settled:true,refund:true,artifactCommitment:true,receiptCommitment:true,errors,video:'artifacts/web/verified-evidence-clip.webm'},null,2));console.log(JSON.stringify({video:'artifacts/web/verified-evidence-clip.webm',errors}));if(errors.length)process.exitCode=1;

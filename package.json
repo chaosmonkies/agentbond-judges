@@ -1,0 +1,44 @@
+{
+  "name": "agentbond",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/launch.cjs test",
+    "typecheck": "tsc --noEmit",
+    "dev": "node scripts/launch.cjs dev",
+    "test:critical": "node scripts/launch.cjs critical",
+    "demo": "node scripts/launch.cjs demo",
+    "web": "npm run dev --workspace=apps/web",
+    "hosted": "node scripts/launch.cjs hosted",
+    "verify:devnet": "node scripts/launch.cjs verify-judges"
+  },
+  "workspaces": [
+    "apps/web"
+  ],
+  "dependencies": {
+    "@coral-xyz/anchor": "0.32.1",
+    "@solana/spl-token": "0.4.14",
+    "@solana/web3.js": "1.98.4",
+    "bn.js": "5.2.5",
+    "bs58": "6.0.0",
+    "tweetnacl": "1.0.3",
+    "undici": "8.11.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@types/bn.js": "5.2.0",
+    "@types/node": "22.18.10",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "8.1.5",
+    "vitest": "5.0.3"
+  },
+  "overrides": {
+    "postcss": "8.5.29"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

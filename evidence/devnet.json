@@ -1,0 +1,324 @@
+{
+  "preparedAt": "2026-10-12T16:40:34.819Z",
+  "scope": "Full public hosted devnet product",
+  "url": "https://otcs.ai",
+  "network": "devnet",
+  "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+  "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+  "settlement": {
+    "verifiedAt": "2026-10-12T16:24:09.907Z",
+    "status": "passed",
+    "deployment": "public",
+    "url": "https://otcs.ai",
+    "network": "devnet",
+    "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+    "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+    "job": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+    "creator": "2Jsk6zJNJUHL3bDMAHeZc9EkJShf5fyyCuEpV77dDjEs",
+    "worker": "2rZn66HSqiZ4hmYxosiLD4uH1va4vW37KWDuc5WNPQyw",
+    "verifier": "6kjotF9c7xbmxJjdRqyqc5jnmPTfqd213XYmhUU6pc3G",
+    "amount": "1000000",
+    "apiBootId": "813e8fcd-2229-4705-92f1-db0ba2ff3fa9",
+    "workersReady": true,
+    "faucetEnabled": true,
+    "inputHash": "26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2",
+    "artifactHash": "1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178",
+    "receiptHash": "7c10c617bc8f54f875dafd6fad0885f02d0ab0eb26414192acd623a3bf799275",
+    "transactions": [
+      {
+        "action": "create",
+        "signature": "5QsEQHBqKUwYUu1Au4YbhaJkFhyTz2Jh1VwvV9GPAe9EHzETG2wAeB4YirrTqhAdZU7eEHubDoyCpxE3vhAjhUKg",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/5QsEQHBqKUwYUu1Au4YbhaJkFhyTz2Jh1VwvV9GPAe9EHzETG2wAeB4YirrTqhAdZU7eEHubDoyCpxE3vhAjhUKg?cluster=devnet",
+        "slot": 510322447
+      },
+      {
+        "action": "fund",
+        "signature": "2JCGRQdLWALhhmWtq1fgfLtw2cvZ8yY1QKtd1em3d8fMAv3o9BK8MBpVb38VVU3izUfdMCRqmmMCFp22bKr159cy",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/2JCGRQdLWALhhmWtq1fgfLtw2cvZ8yY1QKtd1em3d8fMAv3o9BK8MBpVb38VVU3izUfdMCRqmmMCFp22bKr159cy?cluster=devnet",
+        "slot": 510322463
+      },
+      {
+        "action": "claim",
+        "signature": "79mwEBTqr1hkHCwdDqL2Cj4de5CZPL1eXRvUkMe3YHpQbK2KfDnyAZ1fgPYe3DNSVzvwcPKdS5Vdb5rQREQzMrn",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/79mwEBTqr1hkHCwdDqL2Cj4de5CZPL1eXRvUkMe3YHpQbK2KfDnyAZ1fgPYe3DNSVzvwcPKdS5Vdb5rQREQzMrn?cluster=devnet",
+        "slot": 510322469
+      },
+      {
+        "action": "submit",
+        "signature": "5fyuSzGVs6EVmEJCGQaYYkjaziYeFguWnDbRmh3nSMvqCNTmtCNNWHmkMtADJVYMt1YuiT5ehRAfqST68FyDyRYd",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/5fyuSzGVs6EVmEJCGQaYYkjaziYeFguWnDbRmh3nSMvqCNTmtCNNWHmkMtADJVYMt1YuiT5ehRAfqST68FyDyRYd?cluster=devnet",
+        "slot": 510322475
+      },
+      {
+        "action": "approve",
+        "signature": "5hhrcHo6Zh3JoNJEjd1NQqY4teWNhsJ7rkBSojCFtLhzpC1aKM194DBa4t9iV1457GwWMKs9oFrhtXUMnaQ6uaps",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/5hhrcHo6Zh3JoNJEjd1NQqY4teWNhsJ7rkBSojCFtLhzpC1aKM194DBa4t9iV1457GwWMKs9oFrhtXUMnaQ6uaps?cluster=devnet",
+        "slot": 510322692
+      },
+      {
+        "action": "settle",
+        "signature": "3GvZ8pFFzQCXi73j4hatkJWNPnkzjT1HtwHpBJvV3suEdFBoDWSuuDufsQytHWKJ5KCopTvevf6CwDWb5UEmcKZc",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/3GvZ8pFFzQCXi73j4hatkJWNPnkzjT1HtwHpBJvV3suEdFBoDWSuuDufsQytHWKJ5KCopTvevf6CwDWb5UEmcKZc?cluster=devnet",
+        "slot": 510322697
+      }
+    ],
+    "deltas": {
+      "recipientBefore": "27000000",
+      "recipientAfter": "28000000",
+      "vaultBefore": "1000000",
+      "vaultAfter": "0"
+    },
+    "unauthorizedUploadStatus": 401
+  },
+  "refund": {
+    "status": "passed",
+    "url": "https://otcs.ai",
+    "deployment": "public",
+    "network": "devnet",
+    "creator": "8PKHbcjhYNA2aSiEeVxABP84Y9F1JQnkExLR6uEYFLFC",
+    "id": "179182199763607",
+    "job": "H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg",
+    "amount": "1000000",
+    "startedAt": "2026-10-12T16:19:57.637Z",
+    "spec": {
+      "type": "csv-analysis",
+      "input": {
+        "url": "https://otcs.ai/api/inputs/8a1a92a13e70e8fcc3be07fac04311fb7e823383336b0dc696404f4998105cbd.csv",
+        "hash": "8a1a92a13e70e8fcc3be07fac04311fb7e823383336b0dc696404f4998105cbd"
+      },
+      "acceptance": {
+        "numericColumns": [
+          "revenue"
+        ],
+        "anomaly": {
+          "column": "revenue",
+          "threshold": 1000,
+          "direction": "above"
+        }
+      }
+    },
+    "chainStatus": "REFUNDED",
+    "signature": "4GkcFnBxbkdXKQPgiBZyFpZMSRRLRHshaGSVM2ERXNipuoWdMRjQutPkLWoanWa3KA63skm23CgLQBjE585wxWN1",
+    "transactions": [
+      {
+        "action": "create",
+        "signature": "2EpeeXhzS4Yd8QV2xkrhubMfg2PwHTrm3wCcdTYQQjJ6EGPW8GmyRd5p8dK4vbzTxjDbBJ1dNv24a9TEcWPLuN26",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/2EpeeXhzS4Yd8QV2xkrhubMfg2PwHTrm3wCcdTYQQjJ6EGPW8GmyRd5p8dK4vbzTxjDbBJ1dNv24a9TEcWPLuN26?cluster=devnet",
+        "slot": 510321898
+      },
+      {
+        "action": "fund",
+        "signature": "2ZC1gEj1dyrFunV9hrqhCoY8NeCxRw4gENcVmfk7R4f5HtbcGH2jMVZfniHRKAv7hiMCqcozfDRo4AfBTfBcFHRv",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/2ZC1gEj1dyrFunV9hrqhCoY8NeCxRw4gENcVmfk7R4f5HtbcGH2jMVZfniHRKAv7hiMCqcozfDRo4AfBTfBcFHRv?cluster=devnet",
+        "slot": 510321908
+      },
+      {
+        "action": "claim",
+        "signature": "31DXYjEdHKAJc4K2X8JciQsrotpN2NdKjjKjRz8St3yzPurqtyaF4VuidBFAhRd4yeYp3QsfKiy6itBtFV7x5jwR",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/31DXYjEdHKAJc4K2X8JciQsrotpN2NdKjjKjRz8St3yzPurqtyaF4VuidBFAhRd4yeYp3QsfKiy6itBtFV7x5jwR?cluster=devnet",
+        "slot": 510321952
+      },
+      {
+        "action": "refund",
+        "signature": "4GkcFnBxbkdXKQPgiBZyFpZMSRRLRHshaGSVM2ERXNipuoWdMRjQutPkLWoanWa3KA63skm23CgLQBjE585wxWN1",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/4GkcFnBxbkdXKQPgiBZyFpZMSRRLRHshaGSVM2ERXNipuoWdMRjQutPkLWoanWa3KA63skm23CgLQBjE585wxWN1?cluster=devnet",
+        "slot": 510322103
+      }
+    ],
+    "deltas": {
+      "recipientBefore": "973000000",
+      "recipientAfter": "974000000",
+      "vaultBefore": "1000000",
+      "vaultAfter": "0"
+    },
+    "doubleRefundRejected": true,
+    "finishedAt": "2026-10-12T16:20:49.101Z"
+  },
+  "faucet": {
+    "status": "passed",
+    "url": "https://otcs.ai",
+    "deployment": "public",
+    "network": "devnet",
+    "wallet": "2Jsk6zJNJUHL3bDMAHeZc9EkJShf5fyyCuEpV77dDjEs",
+    "signature": "5dmfZs1DzGFxAiY5GvxAQzVeaK4TvKjcviiDdQosx4LG3VDak2NAVK7KuhDrmiu5ArGawhMfz34TZ3Bv4bPeDX4y",
+    "solLamports": "30000000",
+    "tokenUnits": "100000000",
+    "replayRecovered": true,
+    "finality": "finalized",
+    "verifiedAt": "2026-10-12T16:26:38.946Z",
+    "solAfter": "25722800",
+    "tokensAfter": "99000000",
+    "solDelta": "30000000",
+    "tokenDelta": "100000000"
+  },
+  "persistence": {
+    "at": "2026-10-12T16:26:37.552Z",
+    "url": "https://otcs.ai",
+    "deployment": "public",
+    "job": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+    "bootId": "6ce64d1f-29f7-4c44-b0f5-8ad4593c00ae",
+    "chainStatus": "SETTLED",
+    "inputHash": "26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2",
+    "artifactHash": "1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178",
+    "receiptHash": "7c10c617bc8f54f875dafd6fad0885f02d0ab0eb26414192acd623a3bf799275",
+    "metadataHash": "0af3f594cac23fd964326dcd3a3cbe942d4adfc5e644dc681c64aa23ade3e515",
+    "fingerprint": "bef7e0e5af5343ded9afa55282b93eeb2d6886cf287059561249fcee38f8f68e",
+    "status": "passed",
+    "beforeBootId": "813e8fcd-2229-4705-92f1-db0ba2ff3fa9",
+    "afterBootId": "6ce64d1f-29f7-4c44-b0f5-8ad4593c00ae",
+    "beforeFingerprint": "bef7e0e5af5343ded9afa55282b93eeb2d6886cf287059561249fcee38f8f68e",
+    "afterFingerprint": "bef7e0e5af5343ded9afa55282b93eeb2d6886cf287059561249fcee38f8f68e",
+    "beforeAt": "2026-10-12T16:24:41.822Z"
+  },
+  "browser": {
+    "url": "https://otcs.ai",
+    "deployment": "public",
+    "network": "devnet",
+    "status": "passed",
+    "resumed": false,
+    "uploadExercised": true,
+    "creationExercised": true,
+    "fundingExercised": true,
+    "refundObserved": true,
+    "startedAt": "2026-10-12T16:22:05.540Z",
+    "walletTransport": "Node test signing bridge; no secret bytes in browser. Actual wallet extension approval UI is not tested.",
+    "creator": "2Jsk6zJNJUHL3bDMAHeZc9EkJShf5fyyCuEpV77dDjEs",
+    "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+    "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+    "inputUrl": "https://otcs.ai/api/inputs/26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2.csv",
+    "inputHash": "26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2",
+    "job": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+    "title": "Hosted browser work 1791822128567",
+    "initialStatus": "CREATED",
+    "amount": "1000000",
+    "chainStatus": "SETTLED",
+    "vaultBalance": "0",
+    "hashes": {
+      "artifact": "1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178",
+      "receipt": "7c10c617bc8f54f875dafd6fad0885f02d0ab0eb26414192acd623a3bf799275"
+    },
+    "refundedJob": "H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg",
+    "refundStatus": "REFUNDED",
+    "refundCreator": "8PKHbcjhYNA2aSiEeVxABP84Y9F1JQnkExLR6uEYFLFC",
+    "refundAmount": "1000000",
+    "refundExplorerUrl": "https://explorer.solana.com/address/H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg?cluster=devnet",
+    "refundObservedAt": "2026-10-12T16:23:15.561Z",
+    "pageErrors": [],
+    "finishedAt": "2026-10-12T16:23:17.564Z",
+    "observedStatuses": [
+      {
+        "status": "CREATED",
+        "at": "2026-10-12T16:22:12.822Z",
+        "source": "API job account"
+      },
+      {
+        "status": "FUNDED",
+        "at": "2026-10-12T16:22:14.505Z",
+        "source": "API job account"
+      },
+      {
+        "status": "SUBMITTED",
+        "at": "2026-10-12T16:22:28.018Z",
+        "source": "API job account"
+      },
+      {
+        "status": "VERIFIED",
+        "at": "2026-10-12T16:23:09.391Z",
+        "source": "API job account"
+      },
+      {
+        "status": "SETTLED",
+        "at": "2026-10-12T16:23:14.561Z",
+        "source": "API job account"
+      }
+    ],
+    "video": "evidence/workflow-ui.webm",
+    "videoEvidence": "evidence/video.json"
+  },
+  "video": {
+    "status": "passed",
+    "url": "https://otcs.ai",
+    "network": "devnet",
+    "recordedAt": "2026-10-12T16:23:17.564Z",
+    "recording": "Fresh public wallet upload/create/fund, remote autonomous settlement and actual terminal refund UI; Node signing bridge, no extension approval UI",
+    "source": "evidence/workflow-ui.webm",
+    "sourceSha256": "2913788da30446d4579c41b5775827bffa8651e338928321d1cb13f13a6f4b2e",
+    "mp4": "evidence/demo.mp4",
+    "mp4Sha256": "4953e7ebd3002b95ecfefe2824af101b4c8890658bf444bf9bdbdc603bf1b171",
+    "bytes": 1594608,
+    "durationSeconds": 72.52,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1440,
+        "height": 1000
+      }
+    ],
+    "settledJob": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+    "refundedJob": "H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg",
+    "walletTransport": "Node test signing bridge; no secret bytes in browser. Actual wallet extension approval UI is not tested."
+  },
+  "settledContent": {
+    "job": {
+      "address": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+      "id": "1791822129405",
+      "creator": "2Jsk6zJNJUHL3bDMAHeZc9EkJShf5fyyCuEpV77dDjEs",
+      "worker": "2rZn66HSqiZ4hmYxosiLD4uH1va4vW37KWDuc5WNPQyw",
+      "verifier": "6kjotF9c7xbmxJjdRqyqc5jnmPTfqd213XYmhUU6pc3G",
+      "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+      "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "vault": "Cj5cmaJKNufvFFxaUPncEJRU2yC9FU7m8tZsn8UDzgQj",
+      "amount": "1000000",
+      "specHash": "2536614af03520b6bdba56b6cf6f0ed68f132a127a481037be2994a3da59c2ca",
+      "acceptanceHash": "d5be64c672cc3f3b44c3f0b2e23f3eb5ff2dac32e282696cf307d643b1a0ec60",
+      "artifactHash": "1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178",
+      "verificationHash": "7c10c617bc8f54f875dafd6fad0885f02d0ab0eb26414192acd623a3bf799275",
+      "createdAt": 1791822129,
+      "fundedAt": 1791822133,
+      "claimedAt": 1791822134,
+      "submittedAt": 1791822136,
+      "verifiedAt": 1791822187,
+      "settledAt": 1791822188,
+      "claimDeadline": 1791823028,
+      "submitDeadline": 1791824828,
+      "verifyDeadline": 1791825728,
+      "status": "SETTLED"
+    },
+    "metadata": {
+      "address": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+      "title": "Hosted browser work 1791822128567",
+      "spec": {
+        "type": "csv-analysis",
+        "input": {
+          "url": "https://otcs.ai/api/inputs/26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2.csv",
+          "hash": "26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2"
+        },
+        "acceptance": {
+          "numericColumns": [
+            "revenue",
+            "orders"
+          ],
+          "anomaly": {
+            "column": "revenue",
+            "threshold": 1000,
+            "direction": "above"
+          }
+        }
+      }
+    },
+    "input": "date,revenue,orders\n2026-10-01,120,6\n2026-10-02,1800,12\n2026-10-03,260,9\n",
+    "artifact": "{\"version\":1,\"inputHash\":\"26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2\",\"rowCount\":3,\"columns\":{\"revenue\":{\"count\":3,\"sum\":2180,\"mean\":726.6666666666666,\"min\":120,\"max\":1800},\"orders\":{\"count\":3,\"sum\":27,\"mean\":9,\"min\":6,\"max\":12}},\"anomalies\":[{\"row\":2,\"column\":\"revenue\",\"value\":1800}]}",
+    "receipt": "{\"version\":1,\"jobAddress\":\"23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc\",\"approved\":true,\"artifactHash\":\"1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178\",\"inputHash\":\"26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2\",\"specHash\":\"2536614af03520b6bdba56b6cf6f0ed68f132a127a481037be2994a3da59c2ca\",\"checkedAt\":1791822140,\"reasons\":[]}"
+  }
+}

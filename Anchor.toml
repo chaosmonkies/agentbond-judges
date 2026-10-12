@@ -1,0 +1,14 @@
+[toolchain]
+anchor_version = "0.32.1"
+[features]
+resolution = true
+skip-lint = false
+[programs.localnet]
+agentbond = "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U"
+[programs.devnet]
+agentbond = "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U"
+[provider]
+cluster = "Localnet"
+wallet = "~/.agentbond-judges/keys/deployer.json"
+[scripts]
+test = "npx tsx tests/chain/lifecycle.ts"

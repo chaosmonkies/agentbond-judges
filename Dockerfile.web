@@ -1,0 +1,30 @@
+# Build from the repository root: docker build -f Dockerfile.web .
+FROM node:24.21.0-bookworm-slim AS dependencies
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+COPY package.json package-lock.json ./
+COPY apps/web/package.json apps/web/package.json
+RUN npm ci --legacy-peer-deps --include=dev --ignore-scripts \
+    && npm cache clean --force
+
+FROM dependencies AS build
+ENV NODE_ENV=production \
+    NEXT_PUBLIC_API_URL=/api
+COPY tsconfig.json ./
+COPY packages packages
+COPY apps/web apps/web
+RUN npm run build --workspace=apps/web
+
+FROM node:24.21.0-bookworm-slim AS runtime
+WORKDIR /app
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    NEXT_PUBLIC_API_URL=/api \
+    AGENTBOND_BACKEND_URL=http://agentbond-devnet:4100
+COPY --from=build --chown=node:node /app/package.json /app/package-lock.json /app/tsconfig.json ./
+COPY --from=build --chown=node:node /app/node_modules node_modules
+COPY --from=build --chown=node:node /app/packages packages
+COPY --from=build --chown=node:node /app/apps/web apps/web
+USER node
+EXPOSE 3000
+CMD ["node", "node_modules/next/dist/bin/next", "start", "apps/web", "--hostname", "0.0.0.0", "--port", "3000"]

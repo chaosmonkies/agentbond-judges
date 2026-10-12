@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-10-12T17:06:12.836898+00:00",
+  "sourceCommit": "f699a6eff7ee4523d7e2cf308d4d5a2a3bbafdfa",
+  "checkout": "clean isolated judge snapshot",
+  "nodeVersion": "24.21.0",
+  "checks": {
+    "lockedDependencyInstall": {
+      "command": "npm ci --legacy-peer-deps --include=dev --ignore-scripts",
+      "pass": true
+    },
+    "unitTests": {
+      "command": "npm test",
+      "pass": true,
+      "files": 22,
+      "tests": 191
+    },
+    "typecheck": {
+      "command": "npm run typecheck",
+      "pass": true
+    },
+    "webProductionBuild": {
+      "command": "npm run build --workspace=apps/web",
+      "pass": true
+    },
+    "realLocalValidatorCustody": {
+      "command": "npm run test:critical",
+      "pass": true,
+      "checks": 54,
+      "isolatedRpc": "http://127.0.0.1:18999",
+      "externalDedicatedTestKeys": true,
+      "programBinarySha256": "2e0d2a4471e7c19623b525b158953b156ffa36fd7dfda0ec19ed0fa0723964cb",
+      "additionalRuntimeSecurityTests": 92,
+      "note": "The 92 runtime/security tests are a subset of the 191 unit tests, not additional distinct tests."
+    },
+    "portableEvidence": {
+      "command": "npm run verify:devnet -- --offline",
+      "pass": true
+    },
+    "liveHostedDevnet": {
+      "command": "npm run verify:devnet",
+      "pass": true,
+      "report": "evidence/snapshot-live-verification.json",
+      "signedTransactions": false
+    },
+    "publicationScan": {
+      "pass": true,
+      "operatorRecordsIncluded": false,
+      "credentialFilesIncluded": false
+    }
+  }
+}

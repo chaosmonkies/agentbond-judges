@@ -1,0 +1,103 @@
+{
+  "config": {
+    "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+    "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+    "network": "devnet",
+    "rpcUrl": "https://api.devnet.solana.com",
+    "decimals": 6
+  },
+  "jobs": {
+    "48KghkccExd42mDEw21UQaPnw6qtsHDFdqn1SpBNq38X": {
+      "address": "48KghkccExd42mDEw21UQaPnw6qtsHDFdqn1SpBNq38X",
+      "title": "Analyze weekly revenue and detect anomalies",
+      "spec": {
+        "type": "csv-analysis",
+        "input": {
+          "url": "http://127.0.0.1:4101/inputs/demo.csv",
+          "hash": "0adc3fa3cbddad84067fdcab9e21dddd02bf02f75f029cfe42e67b4616c25977"
+        },
+        "acceptance": {
+          "numericColumns": [
+            "revenue",
+            "orders"
+          ],
+          "anomaly": {
+            "column": "revenue",
+            "threshold": 1000,
+            "direction": "above"
+          }
+        }
+      }
+    },
+    "H4NCfmYJ6Y3yoJj8RJveuGW6EkvHRPX4BYsz25GaCuVA": {
+      "address": "H4NCfmYJ6Y3yoJj8RJveuGW6EkvHRPX4BYsz25GaCuVA",
+      "title": "Reject corrupted analysis and refund creator",
+      "spec": {
+        "type": "csv-analysis",
+        "input": {
+          "url": "http://127.0.0.1:4101/inputs/demo.csv",
+          "hash": "0adc3fa3cbddad84067fdcab9e21dddd02bf02f75f029cfe42e67b4616c25977"
+        },
+        "acceptance": {
+          "numericColumns": [
+            "revenue",
+            "orders"
+          ],
+          "anomaly": {
+            "column": "revenue",
+            "threshold": 1000,
+            "direction": "above"
+          }
+        }
+      }
+    }
+  },
+  "agents": [
+    {
+      "id": "csv-worker",
+      "wallet": "2rZn66HSqiZ4hmYxosiLD4uH1va4vW37KWDuc5WNPQyw",
+      "capabilities": [
+        "bounded-csv-statistics",
+        "threshold-anomalies"
+      ],
+      "taskTypes": [
+        "csv-analysis"
+      ],
+      "maxRuntimeMs": 2000,
+      "metadata": {
+        "name": "Atlas · CSV worker",
+        "runtime": "Node permission sandbox"
+      }
+    },
+    {
+      "id": "independent-verifier",
+      "wallet": "6kjotF9c7xbmxJjdRqyqc5jnmPTfqd213XYmhUU6pc3G",
+      "capabilities": [
+        "independent-recomputation",
+        "sha256-integrity",
+        "schema-validation"
+      ],
+      "taskTypes": [
+        "csv-analysis"
+      ],
+      "maxRuntimeMs": 2000,
+      "metadata": {
+        "name": "Sentinel · designated verifier",
+        "trust": "MVP trusted verifier"
+      }
+    }
+  ],
+  "artifacts": {
+    "48KghkccExd42mDEw21UQaPnw6qtsHDFdqn1SpBNq38X": {
+      "artifact": "{\"version\":1,\"inputHash\":\"0adc3fa3cbddad84067fdcab9e21dddd02bf02f75f029cfe42e67b4616c25977\",\"rowCount\":7,\"columns\":{\"revenue\":{\"count\":7,\"sum\":2820,\"mean\":402.85714285714283,\"min\":120,\"max\":1800},\"orders\":{\"count\":7,\"sum\":63,\"mean\":9,\"min\":6,\"max\":12}},\"anomalies\":[{\"row\":5,\"column\":\"revenue\",\"value\":1800}]}",
+      "receipt": "{\"version\":1,\"jobAddress\":\"48KghkccExd42mDEw21UQaPnw6qtsHDFdqn1SpBNq38X\",\"approved\":true,\"artifactHash\":\"ed29350ef4e12ee39950771a865c6fead339661972d3e2603dbfb80ed3747dcc\",\"inputHash\":\"0adc3fa3cbddad84067fdcab9e21dddd02bf02f75f029cfe42e67b4616c25977\",\"specHash\":\"a311f49fdeb4e7c8fc9093adb8ac4beef9352628820b87e2ec585b38e9d78c9c\",\"checkedAt\":1791786168,\"reasons\":[]}"
+    },
+    "H4NCfmYJ6Y3yoJj8RJveuGW6EkvHRPX4BYsz25GaCuVA": {
+      "artifact": "{\"version\":1,\"inputHash\":\"0adc3fa3cbddad84067fdcab9e21dddd02bf02f75f029cfe42e67b4616c25977\",\"rowCount\":999,\"columns\":{},\"anomalies\":[]}",
+      "receipt": "{\"version\":1,\"jobAddress\":\"H4NCfmYJ6Y3yoJj8RJveuGW6EkvHRPX4BYsz25GaCuVA\",\"approved\":false,\"artifactHash\":\"b7dea04bb4907ca58aff6a9e3ae52c792f863f3b3bde30409052dd3edb7bfeae\",\"inputHash\":\"0adc3fa3cbddad84067fdcab9e21dddd02bf02f75f029cfe42e67b4616c25977\",\"specHash\":\"a311f49fdeb4e7c8fc9093adb8ac4beef9352628820b87e2ec585b38e9d78c9c\",\"checkedAt\":1791786231,\"reasons\":[\"Row count mismatch\"]}"
+    }
+  },
+  "inputs": {
+    "demo.csv": "day,revenue,orders\nMon,120,6\nTue,180,9\nWed,140,7\nThu,220,11\nFri,1800,12\nSat,160,8\nSun,200,10\n"
+  }
+}

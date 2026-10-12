@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import { readFile,writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { homedir } from 'node:os';
+import { Keypair,PublicKey } from '@solana/web3.js';
+import { getAccount,getAssociatedTokenAddress } from '@solana/spl-token';
+import { DEVNET_PROFILE,verifyNetworkGenesis } from '../packages/shared/src/network.ts';
+import { loadExternalKeypair } from '../packages/agent-runtime/src/signing.ts';
+import { createRuntimeConnection } from '../packages/agent-runtime/src/rpc.ts';
+import { authorizedHostedPost } from './hosted-wallet.ts';
+
+if(!process.argv.includes('--apply'))throw new Error('This requests real devnet test funds; pass --apply explicitly');
+const local=process.argv.includes('--local'),origin=new URL(process.env.WEB_URL??'https://otcs.ai').origin;
+if(!local)assert(origin.startsWith('https://'));
+const directory=process.env.AGENTBOND_SOURCE_KEY_DIR??join(homedir(),'.agentbond','keys');
+const path=process.env.AGENTBOND_HOSTED_WALLET_PATH??join(directory,local?'devnet-ui-local.json':'devnet-ui-public.json');
+try{await readFile(path);}catch(error){if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;await writeFile(path,JSON.stringify([...Keypair.generate().secretKey]),{mode:0o600,flag:'wx'});}
+const key=await loadExternalKeypair(path),wallet=key.publicKey.toBase58();
+const rpc=createRuntimeConnection(DEVNET_PROFILE.rpcUrl);await verifyNetworkGenesis(DEVNET_PROFILE,rpc);
+const config=await fetch(origin+'/api/config',{signal:AbortSignal.timeout(15000)}).then(r=>r.json());assert(config.network==='devnet'&&config.mint===DEVNET_PROFILE.mint&&config.faucetEnabled);
+const request=JSON.stringify({wallet});
+const first=(await authorizedHostedPost(origin,key,'request-faucet','/faucet',request)).funding;
+assert.equal(first.solSignature,first.tokenSignature);assert.equal(first.solLamports,'30000000');assert.equal(first.tokenUnits,'100000000');
+const ata=await getAssociatedTokenAddress(new PublicKey(DEVNET_PROFILE.mint),key.publicKey);
+const solAfter=await rpc.getBalance(key.publicKey),tokensAfter=(await getAccount(rpc,ata)).amount;
+const again=(await authorizedHostedPost(origin,key,'request-faucet','/faucet',request)).funding;
+assert.equal(again.tokenSignature,first.tokenSignature);assert.equal(again.recovered,true);assert.equal(await rpc.getBalance(key.publicKey),solAfter);assert.equal((await getAccount(rpc,ata)).amount,tokensAfter);
+const status=(await rpc.getSignatureStatuses([first.solSignature],{searchTransactionHistory:true})).value[0];assert(status&&!status.err&&['confirmed','finalized'].includes(status.confirmationStatus??''));
+const tx=await rpc.getTransaction(first.solSignature,{commitment:'confirmed',maxSupportedTransactionVersion:0});assert(tx?.meta&&!tx.meta.err);
+const keys=tx.transaction.message.getAccountKeys({accountKeysFromLookups:tx.meta.loadedAddresses});
+const recipientIndex=Array.from({length:keys.length},(_,i)=>i).find(i=>keys.get(i)?.equals(key.publicKey));assert(recipientIndex!==undefined);
+assert.equal(tx.meta.postBalances[recipientIndex]-tx.meta.preBalances[recipientIndex],30000000);
+const tokenBalance=(kind:'preTokenBalances'|'postTokenBalances')=>tx.meta![kind]?.find(balance=>keys.get(balance.accountIndex)?.equals(ata)&&balance.mint===DEVNET_PROFILE.mint)?.uiTokenAmount.amount??'0';
+assert.equal(BigInt(tokenBalance('postTokenBalances'))-BigInt(tokenBalance('preTokenBalances')),100000000n);
+const proof={status:'passed',url:origin,deployment:local?'local-production':'public',network:'devnet',wallet,signature:first.tokenSignature,solLamports:first.solLamports,tokenUnits:first.tokenUnits,replayRecovered:true,finality:status.confirmationStatus,verifiedAt:new Date().toISOString(),solAfter:String(solAfter),tokensAfter:tokensAfter.toString(),solDelta:'30000000',tokenDelta:'100000000'};
+await writeFile(`.orchestrator/reports/hosted-faucet${local?'-local':''}.json`,JSON.stringify(proof,null,2));console.log(JSON.stringify(proof,null,2));

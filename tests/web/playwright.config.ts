@@ -1,0 +1,6 @@
+import {defineConfig} from '@playwright/test';
+const localDevnet=process.env.AGENTBOND_LOCAL_DEVNET==='1';
+const publicRun=process.env.WEB_URL?.startsWith('https://')??false;
+const hosted=process.env.AGENTBOND_HOSTED==='1';
+const hostedVideo=hosted&&process.env.AGENTBOND_HOSTED_VIDEO==='1';
+export default defineConfig({testDir:'.',testMatch:hosted?'hosted.spec.ts':(publicRun||localDevnet)?'public.spec.ts':'live.spec.ts',fullyParallel:false,workers:1,timeout:90000,expect:{timeout:15000},reporter:[['list'],['json',{outputFile:hosted?'../../artifacts/web/hosted-playwright-results.json':localDevnet?'../../artifacts/web/local-devnet-playwright-results.json':publicRun?'../../artifacts/web/public-playwright-results.json':'../../artifacts/web/playwright-results.json'}]],outputDir:hosted?'../../artifacts/web/hosted-test-results':localDevnet?'../../artifacts/web/local-devnet-test-results':publicRun?'../../artifacts/web/public-test-results':'../../artifacts/web/test-results',use:{baseURL:process.env.WEB_URL??'http://localhost:3000',headless:true,screenshot:'only-on-failure',viewport:hostedVideo?{width:1440,height:1000}:undefined,video:hostedVideo?{mode:'on',size:{width:1440,height:1000}}:'retain-on-failure'},projects:[{name:'chromium',use:{browserName:'chromium'}}]});

@@ -1,0 +1,78 @@
+{
+  "verifiedAt": "2026-10-12T17:04:16.730Z",
+  "scope": "portable evidence and live hosted devnet settlement",
+  "sourceCommit": "f699a6eff7ee4523d7e2cf308d4d5a2a3bbafdfa",
+  "status": "passed",
+  "signedTransactions": false,
+  "live": {
+    "verifiedAt": "2026-10-12T17:04:31.840Z",
+    "status": "passed",
+    "deployment": "public",
+    "url": "https://otcs.ai",
+    "network": "devnet",
+    "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+    "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+    "job": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+    "creator": "2Jsk6zJNJUHL3bDMAHeZc9EkJShf5fyyCuEpV77dDjEs",
+    "worker": "2rZn66HSqiZ4hmYxosiLD4uH1va4vW37KWDuc5WNPQyw",
+    "verifier": "6kjotF9c7xbmxJjdRqyqc5jnmPTfqd213XYmhUU6pc3G",
+    "amount": "1000000",
+    "apiBootId": "6ce64d1f-29f7-4c44-b0f5-8ad4593c00ae",
+    "workersReady": true,
+    "faucetEnabled": true,
+    "inputHash": "26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2",
+    "artifactHash": "1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178",
+    "receiptHash": "7c10c617bc8f54f875dafd6fad0885f02d0ab0eb26414192acd623a3bf799275",
+    "transactions": [
+      {
+        "action": "create",
+        "signature": "5QsEQHBqKUwYUu1Au4YbhaJkFhyTz2Jh1VwvV9GPAe9EHzETG2wAeB4YirrTqhAdZU7eEHubDoyCpxE3vhAjhUKg",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/5QsEQHBqKUwYUu1Au4YbhaJkFhyTz2Jh1VwvV9GPAe9EHzETG2wAeB4YirrTqhAdZU7eEHubDoyCpxE3vhAjhUKg?cluster=devnet",
+        "slot": 510322447
+      },
+      {
+        "action": "fund",
+        "signature": "2JCGRQdLWALhhmWtq1fgfLtw2cvZ8yY1QKtd1em3d8fMAv3o9BK8MBpVb38VVU3izUfdMCRqmmMCFp22bKr159cy",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/2JCGRQdLWALhhmWtq1fgfLtw2cvZ8yY1QKtd1em3d8fMAv3o9BK8MBpVb38VVU3izUfdMCRqmmMCFp22bKr159cy?cluster=devnet",
+        "slot": 510322463
+      },
+      {
+        "action": "claim",
+        "signature": "79mwEBTqr1hkHCwdDqL2Cj4de5CZPL1eXRvUkMe3YHpQbK2KfDnyAZ1fgPYe3DNSVzvwcPKdS5Vdb5rQREQzMrn",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/79mwEBTqr1hkHCwdDqL2Cj4de5CZPL1eXRvUkMe3YHpQbK2KfDnyAZ1fgPYe3DNSVzvwcPKdS5Vdb5rQREQzMrn?cluster=devnet",
+        "slot": 510322469
+      },
+      {
+        "action": "submit",
+        "signature": "5fyuSzGVs6EVmEJCGQaYYkjaziYeFguWnDbRmh3nSMvqCNTmtCNNWHmkMtADJVYMt1YuiT5ehRAfqST68FyDyRYd",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/5fyuSzGVs6EVmEJCGQaYYkjaziYeFguWnDbRmh3nSMvqCNTmtCNNWHmkMtADJVYMt1YuiT5ehRAfqST68FyDyRYd?cluster=devnet",
+        "slot": 510322475
+      },
+      {
+        "action": "approve",
+        "signature": "5hhrcHo6Zh3JoNJEjd1NQqY4teWNhsJ7rkBSojCFtLhzpC1aKM194DBa4t9iV1457GwWMKs9oFrhtXUMnaQ6uaps",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/5hhrcHo6Zh3JoNJEjd1NQqY4teWNhsJ7rkBSojCFtLhzpC1aKM194DBa4t9iV1457GwWMKs9oFrhtXUMnaQ6uaps?cluster=devnet",
+        "slot": 510322692
+      },
+      {
+        "action": "settle",
+        "signature": "3GvZ8pFFzQCXi73j4hatkJWNPnkzjT1HtwHpBJvV3suEdFBoDWSuuDufsQytHWKJ5KCopTvevf6CwDWb5UEmcKZc",
+        "finality": "finalized",
+        "explorer": "https://explorer.solana.com/tx/3GvZ8pFFzQCXi73j4hatkJWNPnkzjT1HtwHpBJvV3suEdFBoDWSuuDufsQytHWKJ5KCopTvevf6CwDWb5UEmcKZc?cluster=devnet",
+        "slot": 510322697
+      }
+    ],
+    "deltas": {
+      "recipientBefore": "27000000",
+      "recipientAfter": "28000000",
+      "vaultBefore": "1000000",
+      "vaultAfter": "0"
+    },
+    "unauthorizedUploadStatus": 401
+  }
+}

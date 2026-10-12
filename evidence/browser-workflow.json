@@ -1,0 +1,65 @@
+{
+  "url": "https://otcs.ai",
+  "deployment": "public",
+  "network": "devnet",
+  "status": "passed",
+  "resumed": false,
+  "uploadExercised": true,
+  "creationExercised": true,
+  "fundingExercised": true,
+  "refundObserved": true,
+  "startedAt": "2026-10-12T16:22:05.540Z",
+  "walletTransport": "Node test signing bridge; no secret bytes in browser. Actual wallet extension approval UI is not tested.",
+  "creator": "2Jsk6zJNJUHL3bDMAHeZc9EkJShf5fyyCuEpV77dDjEs",
+  "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+  "mint": "5XBm9mTbKp2URS4ptgukSnCWneXpfiwh7eNpHZK9AoiQ",
+  "inputUrl": "https://otcs.ai/api/inputs/26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2.csv",
+  "inputHash": "26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2",
+  "job": "23pskswq8TSBvBqMSwdT4EeGyTmrzY1hBAMmdf821Aoc",
+  "title": "Hosted browser work 1791822128567",
+  "initialStatus": "CREATED",
+  "amount": "1000000",
+  "chainStatus": "SETTLED",
+  "vaultBalance": "0",
+  "hashes": {
+    "artifact": "1ec663b8477b93f99fb2845de196d383fb332c8704f13ef9d444c87726894178",
+    "receipt": "7c10c617bc8f54f875dafd6fad0885f02d0ab0eb26414192acd623a3bf799275"
+  },
+  "refundedJob": "H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg",
+  "refundStatus": "REFUNDED",
+  "refundCreator": "8PKHbcjhYNA2aSiEeVxABP84Y9F1JQnkExLR6uEYFLFC",
+  "refundAmount": "1000000",
+  "refundExplorerUrl": "https://explorer.solana.com/address/H9TZiAPAFrGxzsEKdgaTDsa2TxRdwXREDPncYR3iMbg?cluster=devnet",
+  "refundObservedAt": "2026-10-12T16:23:15.561Z",
+  "pageErrors": [],
+  "finishedAt": "2026-10-12T16:23:17.564Z",
+  "observedStatuses": [
+    {
+      "status": "CREATED",
+      "at": "2026-10-12T16:22:12.822Z",
+      "source": "API job account"
+    },
+    {
+      "status": "FUNDED",
+      "at": "2026-10-12T16:22:14.505Z",
+      "source": "API job account"
+    },
+    {
+      "status": "SUBMITTED",
+      "at": "2026-10-12T16:22:28.018Z",
+      "source": "API job account"
+    },
+    {
+      "status": "VERIFIED",
+      "at": "2026-10-12T16:23:09.391Z",
+      "source": "API job account"
+    },
+    {
+      "status": "SETTLED",
+      "at": "2026-10-12T16:23:14.561Z",
+      "source": "API job account"
+    }
+  ],
+  "video": "evidence/workflow-ui.webm",
+  "videoEvidence": "evidence/video.json"
+}

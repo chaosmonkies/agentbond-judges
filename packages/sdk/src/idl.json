@@ -1,0 +1,940 @@
+{
+  "address": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+  "metadata": {
+    "name": "agentbond",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "approve_work",
+      "discriminator": [
+        181,
+        118,
+        45,
+        143,
+        204,
+        88,
+        237,
+        109
+      ],
+      "accounts": [
+        {
+          "name": "verifier",
+          "signer": true,
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "verification_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cancel_job",
+      "discriminator": [
+        126,
+        241,
+        155,
+        241,
+        50,
+        236,
+        83,
+        118
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "signer": true,
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_job",
+      "discriminator": [
+        9,
+        160,
+        5,
+        231,
+        116,
+        123,
+        198,
+        14
+      ],
+      "accounts": [
+        {
+          "name": "worker",
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_job",
+      "discriminator": [
+        178,
+        130,
+        217,
+        110,
+        100,
+        27,
+        82,
+        119
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "arg",
+                "path": "id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "id",
+          "type": "u64"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "verifier",
+          "type": "pubkey"
+        },
+        {
+          "name": "spec_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "acceptance_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "claim_deadline",
+          "type": "i64"
+        },
+        {
+          "name": "submit_deadline",
+          "type": "i64"
+        },
+        {
+          "name": "verify_deadline",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "fund_job",
+      "discriminator": [
+        244,
+        198,
+        4,
+        15,
+        41,
+        178,
+        169,
+        187
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "signer": true,
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job"
+              }
+            ]
+          },
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "mint",
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "relations": [
+            "job"
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "refund_job",
+      "discriminator": [
+        194,
+        186,
+        15,
+        90,
+        246,
+        119,
+        89,
+        240
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "signer": true,
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job"
+              }
+            ]
+          },
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "mint",
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "relations": [
+            "job"
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "reject_work",
+      "discriminator": [
+        129,
+        238,
+        59,
+        133,
+        63,
+        148,
+        130,
+        54
+      ],
+      "accounts": [
+        {
+          "name": "verifier",
+          "signer": true,
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "verification_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "settle_job",
+      "discriminator": [
+        246,
+        155,
+        221,
+        34,
+        168,
+        70,
+        173,
+        72
+      ],
+      "accounts": [
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job"
+              }
+            ]
+          },
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "mint",
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "relations": [
+            "job"
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "submit_work",
+      "discriminator": [
+        158,
+        80,
+        101,
+        51,
+        114,
+        130,
+        101,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "worker",
+          "signer": true,
+          "relations": [
+            "job"
+          ]
+        },
+        {
+          "name": "job",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  111,
+                  98
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "job.creator",
+                "account": "Job"
+              },
+              {
+                "kind": "account",
+                "path": "job.id",
+                "account": "Job"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "artifact_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Job",
+      "discriminator": [
+        75,
+        124,
+        80,
+        203,
+        161,
+        180,
+        202,
+        80
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "JobChanged",
+      "discriminator": [
+        52,
+        130,
+        194,
+        207,
+        35,
+        50,
+        167,
+        114
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "FreezeAuthorityUnsupported",
+      "msg": "Escrow mint must have no freeze authority"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidAmount",
+      "msg": "Amount must be positive"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidDeadlines",
+      "msg": "Deadlines must be future and strictly ordered"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidVerifier",
+      "msg": "Verifier must be distinct and nonzero"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidHash",
+      "msg": "Hash must be nonzero"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidState",
+      "msg": "Invalid lifecycle transition"
+    },
+    {
+      "code": 6006,
+      "name": "DeadlinePassed",
+      "msg": "Action deadline passed"
+    },
+    {
+      "code": 6007,
+      "name": "RoleConflict",
+      "msg": "Worker must differ from creator and verifier"
+    },
+    {
+      "code": 6008,
+      "name": "WrongDestination",
+      "msg": "Destination must belong to assigned worker"
+    },
+    {
+      "code": 6009,
+      "name": "RefundUnavailable",
+      "msg": "Only rejected or expired unapproved jobs may refund"
+    }
+  ],
+  "types": [
+    {
+      "name": "Job",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "worker",
+            "type": "pubkey"
+          },
+          {
+            "name": "verifier",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "spec_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "acceptance_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "artifact_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "verification_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "funded_at",
+            "type": "i64"
+          },
+          {
+            "name": "claimed_at",
+            "type": "i64"
+          },
+          {
+            "name": "submitted_at",
+            "type": "i64"
+          },
+          {
+            "name": "verified_at",
+            "type": "i64"
+          },
+          {
+            "name": "settled_at",
+            "type": "i64"
+          },
+          {
+            "name": "claim_deadline",
+            "type": "i64"
+          },
+          {
+            "name": "submit_deadline",
+            "type": "i64"
+          },
+          {
+            "name": "verify_deadline",
+            "type": "i64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "JobStatus"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobChanged",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "job",
+            "type": "pubkey"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "JobStatus"
+              }
+            }
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Created"
+          },
+          {
+            "name": "Funded"
+          },
+          {
+            "name": "Claimed"
+          },
+          {
+            "name": "Submitted"
+          },
+          {
+            "name": "Verified"
+          },
+          {
+            "name": "Rejected"
+          },
+          {
+            "name": "Settled"
+          },
+          {
+            "name": "Cancelled"
+          },
+          {
+            "name": "Refunded"
+          }
+        ]
+      }
+    }
+  ]
+}

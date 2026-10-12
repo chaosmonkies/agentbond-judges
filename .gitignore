@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.next-*/
+target/
+.anchor/
+.env*
+!.env.example
+*.keypair.json
+.orchestrator/
+artifacts/
+tests/chain/artifacts/
+playwright-report/
+test-results/
+.vercel/
+*.tsbuildinfo
+.DS_Store

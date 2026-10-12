@@ -1,0 +1,284 @@
+{
+  "startedAt": "2026-10-12T17:04:23.801Z",
+  "network": "http://127.0.0.1:18999",
+  "programId": "FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U",
+  "tests": [
+    {
+      "name": "create 3sGMD9ikDqB9ELdhH4TMaaMPmM8Sbec9J2wKwmiuWehp",
+      "result": "PASS",
+      "signature": "4CchiikbcnMkKddwXZdRQNH7HiT3U8yWVrySDJHiAh4P4E7BQDqocHE4iuDBWEEoKF5PdeqV7hRPAHwqPxkXVRSW"
+    },
+    {
+      "name": "settlement before worker assignment",
+      "result": "PASS",
+      "error": "AnchorError caused by account: destination. Error Code: WrongDestination. Error Number: 6008. Error Message: Destination must belong to assigned worker."
+    },
+    {
+      "name": "unauthorized funding signer",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: AnjunpoSXedVdeDjHL9SiipgoYUo4pwPfjQxjPU3GSAQ\nProgram log: Right:\nProgram log: KPx15qb1YUD6hELBXZCoEeF4yim3WqPqb9HCmnE4zgQ"
+    },
+    {
+      "name": "fund real SPL escrow",
+      "result": "PASS",
+      "signature": "2mD748vcQoLpKURC7F4aRQD9oEhFFN98Ciosdfz8nUprqAbGx3pFmhLUpkGoVAK1xjdkQ4u3GDqRjSEfvzR4CT43"
+    },
+    {
+      "name": "duplicate funding",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:64. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "cancel funded escrow",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:146. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "premature refund",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:161. Error Code: RefundUnavailable. Error Number: 6009. Error Message: Only rejected or expired unapproved jobs may refund."
+    },
+    {
+      "name": "creator role conflict",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:89. Error Code: RoleConflict. Error Number: 6007. Error Message: Worker must differ from creator and verifier."
+    },
+    {
+      "name": "verifier role conflict",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:89. Error Code: RoleConflict. Error Number: 6007. Error Message: Worker must differ from creator and verifier."
+    },
+    {
+      "name": "worker claims",
+      "result": "PASS",
+      "signature": "5wrMBfyd8WmfYdQzEMJ857mjhAHSXGcZJd7ehgGihekN4tK3BFUWnAPu2ijNvdh5xEiRsi3ma1W6BFsAEVqNKEem"
+    },
+    {
+      "name": "settlement before approval",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:127. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "duplicate claim",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:87. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "unauthorized submission",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: 7mDvivYsrrDahxnnSk74266eVRTpwrNXuRZDuwaUTKfo\nProgram log: Right:\nProgram log: KPx15qb1YUD6hELBXZCoEeF4yim3WqPqb9HCmnE4zgQ"
+    },
+    {
+      "name": "worker submits commitment",
+      "result": "PASS",
+      "signature": "4VHjyopcbE8Z8wcB8Kuyrr5HNkk6V7yhP5iGiQLmGNXnaBbYD6omBHYLAE3RKYKJtKTCBDeW7agKAu1EmYiR97qq"
+    },
+    {
+      "name": "replayed submission",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:102. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "unauthorized approval",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: 8FftV4FvqCyG2Ae5hAXFth55ZXgsnQDj2hu4tVXBaDbs\nProgram log: Right:\nProgram log: KPx15qb1YUD6hELBXZCoEeF4yim3WqPqb9HCmnE4zgQ"
+    },
+    {
+      "name": "unauthorized rejection",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: 8FftV4FvqCyG2Ae5hAXFth55ZXgsnQDj2hu4tVXBaDbs\nProgram log: Right:\nProgram log: AnjunpoSXedVdeDjHL9SiipgoYUo4pwPfjQxjPU3GSAQ"
+    },
+    {
+      "name": "designated verifier approves",
+      "result": "PASS",
+      "signature": "36nLtMQgUGEx8o33B5zBnEeVRR87fcdgKtd7W1jeruQiosCAGdkrDwAU6aGdgxjfGYhwhnbC6db5TrtjkJxgt2Zc"
+    },
+    {
+      "name": "creator clawback after VERIFIED",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:161. Error Code: RefundUnavailable. Error Number: 6009. Error Message: Only rejected or expired unapproved jobs may refund."
+    },
+    {
+      "name": "rejection after approval",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:179. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "settlement account substitution",
+      "result": "PASS",
+      "error": "AnchorError caused by account: destination. Error Code: WrongDestination. Error Number: 6008. Error Message: Destination must belong to assigned worker."
+    },
+    {
+      "name": "permissionless exactly-once settlement",
+      "result": "PASS",
+      "signature": "63PUG1CwDoQaBKZZpmmA8c1yBEzuxFaPBDNnDv9BRStuBVoZHm9VSSdFbf8sLJE7E7t1eB9E9V2UqLWEPpPYTyxw"
+    },
+    {
+      "name": "double settlement",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:127. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "terminal refund",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:161. Error Code: RefundUnavailable. Error Number: 6009. Error Message: Only rejected or expired unapproved jobs may refund."
+    },
+    {
+      "name": "terminal claim",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:87. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "duplicate job PDA",
+      "result": "PASS",
+      "error": "Error: Simulation failed. \nMessage: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x0. \nLogs: \n[\n  \"Program FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U invoke [1]\",\n  \"Program log: Instruction: CreateJob\",\n  \"Program 11111111111111111111111111111111 invoke [2]\",\n  \"Allocate: account Address { address: 3sGMD9ikDqB9ELdhH4TMaaMPmM8Sbec9J2wKwmiuWehp, base: None } already in use\",\n  \"Program 11111111111111111111111111111111 failed: custom program error: 0x0\",\n  \"Program FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U consumed 5897 of 200000 compute units\",\n  \"Program FPymWjwqaqmXQ3ozKNRdBP9FNyWqQcE5TepHvUBgMB1U failed: custom program error: 0x0\"\n]. \nCatch the `SendTransactionError` and call `getLogs()` on it for full details."
+    },
+    {
+      "name": "create EX7KESHgE84TseKsesgcQAm5CyYzp7yPNMBepn423j6F",
+      "result": "PASS",
+      "signature": "2BSwHmQPkBMALSccpJ6KFB3Txb2qfSGm1hVYq7AMn2EzXqvzSLs6VY87MdpNCMVvNgtjgparbeSesNQZAysuHhyv"
+    },
+    {
+      "name": "designated verifier rejects",
+      "result": "PASS",
+      "signature": "3DhwTELyvCBhTa1ryJ1U3NDsShuXqBN5wxoCdFHQeMMsspb78S4mHRAV8VnqvptS7hduh347BfCrCPsx5PiUuwiv"
+    },
+    {
+      "name": "refund authority substitution",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: AnjunpoSXedVdeDjHL9SiipgoYUo4pwPfjQxjPU3GSAQ\nProgram log: Right:\nProgram log: KPx15qb1YUD6hELBXZCoEeF4yim3WqPqb9HCmnE4zgQ"
+    },
+    {
+      "name": "refund destination substitution",
+      "result": "PASS",
+      "error": "AnchorError occurred. Error Code: ConstraintTokenOwner. Error Number: 2015. Error Message: A token owner constraint was violated."
+    },
+    {
+      "name": "rejected job refund",
+      "result": "PASS",
+      "signature": "3PUJr9htmBUa8EYzXUVqWGriXvc3y47eSNaXRrn1NxLWJQbMPYdcuvnr9aMx5F1eLPjMne75nAyc94Bi5UUKLhjr"
+    },
+    {
+      "name": "double refund",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:161. Error Code: RefundUnavailable. Error Number: 6009. Error Message: Only rejected or expired unapproved jobs may refund."
+    },
+    {
+      "name": "create nKrbxieFy8jy7XBi5NDBTusnwBsqgwkEiCzNLuaFeZy",
+      "result": "PASS",
+      "signature": "4LZ8fVu8cftR1XLws3FteK2TmzTUTuRAYKCb28vcVc92yinFEPR4B1uG2c2o24re7ArgbRpKgiN1B3pfFYDoykhJ"
+    },
+    {
+      "name": "wrong source mint",
+      "result": "PASS",
+      "error": "AnchorError occurred. Error Code: ConstraintTokenMint. Error Number: 2014. Error Message: A token mint constraint was violated."
+    },
+    {
+      "name": "wrong vault PDA",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: 5CWMxouYxjusiKC8NuBS2Q2tig4bioNoryUMje7cRvg8\nProgram log: Right:\nProgram log: 8GvezHnjof3TE53h557TZ9SBTWvZ9FiuT4Uo4doEQZbh"
+    },
+    {
+      "name": "wrong mint account",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: BXCx8FZZB6iXX1JeX2UgToNpJYsagqARnVRnt8Y85fMY\nProgram log: Right:\nProgram log: BF2qaTXRqWU8Q8gMA5YSfNZuLYbeJQnZ48GWGUeW21f7"
+    },
+    {
+      "name": "wrong token program",
+      "result": "PASS",
+      "error": "AnchorError caused by account: token_program. Error Code: InvalidProgramId. Error Number: 3008. Error Message: Program ID was not as expected.\nProgram log: Left:\nProgram log: 11111111111111111111111111111111\nProgram log: Right:\nProgram log: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+    },
+    {
+      "name": "unauthorized cancel",
+      "result": "PASS",
+      "error": "AnchorError caused by account: job. Error Code: ConstraintHasOne. Error Number: 2001. Error Message: A has one constraint was violated.\nProgram log: Left:\nProgram log: AnjunpoSXedVdeDjHL9SiipgoYUo4pwPfjQxjPU3GSAQ\nProgram log: Right:\nProgram log: KPx15qb1YUD6hELBXZCoEeF4yim3WqPqb9HCmnE4zgQ"
+    },
+    {
+      "name": "creator cancels unfunded job",
+      "result": "PASS",
+      "signature": "a5qXjLBG4eJiQshDc1SrjRMwLA2Qzkcheyf3zheC8XFML8BAKyWqEjNXywR5aqQaMXSJfuJ36bZd1NKiTEASPiA"
+    },
+    {
+      "name": "post-cancel funding",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:64. Error Code: InvalidState. Error Number: 6005. Error Message: Invalid lifecycle transition."
+    },
+    {
+      "name": "invalid zero amount",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:21. Error Code: InvalidAmount. Error Number: 6001. Error Message: Amount must be positive."
+    },
+    {
+      "name": "invalid deadline ordering",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:26. Error Code: InvalidDeadlines. Error Number: 6002. Error Message: Deadlines must be future and strictly ordered."
+    },
+    {
+      "name": "invalid zero spec hash",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:36. Error Code: InvalidHash. Error Number: 6004. Error Message: Hash must be nonzero."
+    },
+    {
+      "name": "creator as verifier",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:32. Error Code: InvalidVerifier. Error Number: 6003. Error Message: Verifier must be distinct and nonzero."
+    },
+    {
+      "name": "mint freeze authority rejected",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:22. Error Code: FreezeAuthorityUnsupported. Error Number: 6000. Error Message: Escrow mint must have no freeze authority."
+    },
+    {
+      "name": "Token-2022 mint rejected",
+      "result": "PASS",
+      "error": "AnchorError caused by account: mint. Error Code: AccountOwnedByWrongProgram. Error Number: 3007. Error Message: The given account is owned by a different program than expected.\nProgram log: Left:\nProgram log: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb\nProgram log: Right:\nProgram log: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+    },
+    {
+      "name": "late claim",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:88. Error Code: DeadlinePassed. Error Number: 6006. Error Message: Action deadline passed."
+    },
+    {
+      "name": "unclaimed deadline refund",
+      "result": "PASS",
+      "signature": "3Z7KMmWyobmD8Epa67m5d27iFM4QssvLPMG62Be9dba27vb7KFAvg2AbNELP1rYkFGur5jA5E5U76bK62BV7QeLC"
+    },
+    {
+      "name": "late submission",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:103. Error Code: DeadlinePassed. Error Number: 6006. Error Message: Action deadline passed."
+    },
+    {
+      "name": "missed submission refund",
+      "result": "PASS",
+      "signature": "3BkBq1mS8rF2HgmsQ7usPEs9HZ1AEVAPnYfHjsrc6enY3UgkNPEBDcaU9Hw1ff6Djq3eUqbymhSeBYB6p7rXthDz"
+    },
+    {
+      "name": "late approval",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:180. Error Code: DeadlinePassed. Error Number: 6006. Error Message: Action deadline passed."
+    },
+    {
+      "name": "nonresponsive verifier refund",
+      "result": "PASS",
+      "signature": "3796uJJhPfxW8hyTFxZoj93ahQihRTnm2uZB6VoGvRmLhKDbTA7CTcrXbFUGTP9mLg2gfJ6yihF5xjFgexJ3yBq3"
+    },
+    {
+      "name": "expired VERIFIED clawback",
+      "result": "PASS",
+      "error": "AnchorError thrown in programs/agentbond/src/lib.rs:161. Error Code: RefundUnavailable. Error Number: 6009. Error Message: Only rejected or expired unapproved jobs may refund."
+    },
+    {
+      "name": "VERIFIED settles after deadline",
+      "result": "PASS",
+      "signature": "qMpJJthAJm2sMbsLaD4oti7AAVv9wPpWmJcAsnkHUkxXUrGMvnJGXHupmT9BipfBpvNiKmvHkAxCr6TBRMX3mYT"
+    }
+  ],
+  "mint": "BXCx8FZZB6iXX1JeX2UgToNpJYsagqARnVRnt8Y85fMY",
+  "balances": {
+    "creator": "8000000",
+    "worker": "2000000",
+    "vault": "0"
+  },
+  "finishedAt": "2026-10-12T17:05:20.641Z"
+}

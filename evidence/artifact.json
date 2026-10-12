@@ -1,0 +1,1 @@
+{"version":1,"inputHash":"26e4025f06102fda9cf9df2d9341919f870bd74858c1eabd0d9a733d5e7a4ca2","rowCount":3,"columns":{"revenue":{"count":3,"sum":2180,"mean":726.6666666666666,"min":120,"max":1800},"orders":{"count":3,"sum":27,"mean":9,"min":6,"max":12}},"anomalies":[{"row":2,"column":"revenue","value":1800}]}

@@ -1,0 +1,76 @@
+name: agentbond
+services:
+  agentbond-devnet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: agentbond-devnet:${AGENTBOND_RELEASE_TAG:-current}
+    container_name: agentbond-devnet
+    restart: unless-stopped
+    env_file: ${AGENTBOND_PROFILE_FILE:-config/devnet.env.example}
+    environment:
+      AGENTBOND_PUBLIC_API_URL: https://${AGENTBOND_DOMAIN:?Set your deployment domain}/api
+      AGENTBOND_WEB_ORIGIN: https://${AGENTBOND_DOMAIN:?Set your deployment domain}
+      AGENTBOND_AUTH_DOMAIN: ${AGENTBOND_DOMAIN:?Set your deployment domain}
+      AGENTBOND_WORKER_KEYPAIR: /credentials/worker.json
+      AGENTBOND_VERIFIER_KEYPAIR: /credentials/verifier.json
+      AGENTBOND_FAUCET_KEYPAIR: /credentials/faucet-devnet.json
+      AGENTBOND_MINT_AUTHORITY_KEYPAIR: /credentials/creator.json
+    volumes:
+      - agentbond-data:/data
+      - ${AGENTBOND_CREDENTIAL_DIR:?Set your external signing directory}:/credentials:ro
+    networks: [agentbond]
+    mem_limit: 768m
+    cpus: 1.5
+    pids_limit: 256
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: '3'}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:4100/health',{signal:AbortSignal.timeout(5000)}).then(async r=>{const h=await r.json();process.exit(r.ok&&h.apiReady?0:1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 8s
+      start_period: 120s
+      retries: 3
+  agentbond-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    image: agentbond-web:${AGENTBOND_RELEASE_TAG:-current}
+    container_name: agentbond-web
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: /api
+      AGENTBOND_BACKEND_URL: http://agentbond-devnet:4100
+      AGENTBOND_INTERNAL_BACKEND_HOST: agentbond-devnet
+    depends_on:
+      agentbond-devnet: {condition: service_healthy}
+    networks: [agentbond, caddy]
+    labels:
+      caddy_ingress_network: caddy
+      caddy_0: ${AGENTBOND_DOMAIN:?Set your deployment domain}
+      caddy_0.reverse_proxy: "{{upstreams 3000}}"
+      caddy_1: www.${AGENTBOND_DOMAIN:?Set your deployment domain}
+      caddy_1.redir: "https://${AGENTBOND_DOMAIN:?Set your deployment domain}{uri} permanent"
+    mem_limit: 768m
+    cpus: 1.5
+    pids_limit: 128
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: '3'}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/',{signal:AbortSignal.timeout(5000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 8s
+      start_period: 30s
+      retries: 3
+networks:
+  agentbond: {}
+  caddy: {external: true}
+volumes:
+  agentbond-data:
+    name: agentbond-devnet-data

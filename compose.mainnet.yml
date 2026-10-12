@@ -1,0 +1,18 @@
+# Preparation only: explicit mainnet authorization and deployed own addresses required.
+name: agentbond-mainnet
+services:
+  agentbond-devnet:
+    container_name: agentbond-mainnet
+    env_file: config/mainnet.env.example
+    environment:
+      AGENTBOND_HISTORY_FILE: ''
+      AGENTBOND_FAUCET_KEYPAIR: ''
+      AGENTBOND_MINT_AUTHORITY_KEYPAIR: ''
+    volumes:
+      - agentbond-data:/data
+      - ${AGENTBOND_CREDENTIAL_DIR:-/opt/agentbond-secrets/mainnet}:/credentials:ro
+  agentbond-web:
+    container_name: agentbond-mainnet-web
+volumes:
+  agentbond-data:
+    name: agentbond-mainnet-data

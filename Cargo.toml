@@ -1,0 +1,7 @@
+[workspace]
+members = ["programs/agentbond"]
+resolver = "2"
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
